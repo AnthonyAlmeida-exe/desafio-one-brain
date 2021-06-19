@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyle } from "./styles/global";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { UsersProvider } from "./hooks/useUsers";
+import { ClientProvider } from "./hooks/useClient";
+import { OrderProvider } from "./hooks/useOrder";
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "./routes";
 
-function App() {
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ClientProvider>
+        <OrderProvider>
+          <UsersProvider>
+            <Header />
+            <div
+              style={{
+                minHeight: "310px",
+              }}
+            >
+              <Routes />
+            </div>
+
+            <Footer />
+            <GlobalStyle />
+          </UsersProvider>
+        </OrderProvider>
+      </ClientProvider>
+    </Router>
   );
 }
-
-export default App;
