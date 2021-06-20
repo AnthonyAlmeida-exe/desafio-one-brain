@@ -34,6 +34,8 @@ export const handlers = [
         "Quatro Queijos",
         "Frango",
         "Frango com Catupiry",
+        "Metade Bacon, metade Queijo",
+        "Metade Frango, metade Portuguesa",
       ])
     );
   }),

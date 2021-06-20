@@ -136,7 +136,7 @@ function Draw({ name, variant }: Props) {
 
             <DrawerFooter borderTopWidth="1px">
               <Button variant="outline" mr={3} onClick={onClose}>
-                Cancel
+                Cancelar
               </Button>
               <Button
                 colorScheme="blue"
@@ -144,7 +144,7 @@ function Draw({ name, variant }: Props) {
                 type="submit"
                 spinner={<Spinner color="white" />}
               >
-                Submit
+                Cadastrar
               </Button>
             </DrawerFooter>
           </form>
@@ -195,7 +195,7 @@ function Draw({ name, variant }: Props) {
 
             <DrawerFooter borderTopWidth="1px" marginTop="15px">
               <Button variant="outline" mr={3} onClick={onClose}>
-                Cancel
+                Cancelar
               </Button>
               <Button
                 colorScheme="blue"
@@ -203,7 +203,7 @@ function Draw({ name, variant }: Props) {
                 type="submit"
                 spinner={<Spinner color="white" />}
               >
-                Submit
+                Login
               </Button>
             </DrawerFooter>
           </form>

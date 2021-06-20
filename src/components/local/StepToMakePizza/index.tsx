@@ -1,8 +1,16 @@
 import { Flex, Button, Text } from "@chakra-ui/react";
-import { Checkbox, CheckboxGroup, HStack } from "@chakra-ui/react";
+import {
+  Checkbox,
+  CheckboxGroup,
+  HStack,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import ModalFinishOrder from "./ModalFinishOrder";
+import Modal from "components/global/Modal";
 import { useOrder } from "../../../hooks/useOrder";
 
 interface IProps {
@@ -108,12 +116,31 @@ function StepToMakePizza({
         )}
       </Flex>
       {modalFinishOrder && (
-        <ModalFinishOrder
+        <Modal
           isOpen={modalFinishOrder}
           onClose={() => setModalFinishOrder(false)}
-          order={order}
-          onAction={() => createOrder(order)}
-        />
+        >
+          <ModalHeader>Informação do pedido</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody flexDirection="column">
+            <Text>Massa: {order.pasta}</Text>
+            <Text>Tamanho: {order.size}</Text>
+            <Text>Sabor: {order.flavor}</Text>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button
+              _hover={{
+                transform: "scale(1.1)",
+                backgroundColor: "#4d925fae",
+                color: "white",
+              }}
+              onClick={() => createOrder(order)}
+            >
+              Finalizar Pedido
+            </Button>
+          </ModalFooter>
+        </Modal>
       )}
     </Flex>
   );

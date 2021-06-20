@@ -1,11 +1,22 @@
 import { useEffect, useState } from "react";
-import { Box, Image, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Image,
+  Flex,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  ModalHeader,
+  Text,
+  Button,
+} from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
 import Pizza from "assets/pizza.jpg";
-import ModalOffer from "./ModalOffer";
+
 import { OfferProps } from "types";
 import { useOrder } from "hooks/useOrder";
+import Modal from "components/global/Modal";
 
 export default function Home() {
   const [modalOffer, setModalOffer] = useState(false);
@@ -59,15 +70,31 @@ export default function Home() {
         </Box>
       </Link>
       {modalOffer && (
-        <ModalOffer
-          isOpen={modalOffer}
-          offerInfo={offer}
-          onClose={() => setModalOffer(false)}
-          onAction={() => {
-            createOrder(offer.pizza);
-            setModalOffer(false);
-          }}
-        />
+        <Modal isOpen={modalOffer} onClose={() => setModalOffer(false)}>
+          <ModalHeader>Informação do pedido</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody flexDirection="column">
+            <Text>Massa: {offer.pizza.pasta}</Text>
+            <Text>Tamanho: {offer.pizza.size}</Text>
+            <Text>Sabor: {offer.pizza.flavor}</Text>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button
+              _hover={{
+                transform: "scale(1.1)",
+                backgroundColor: "#4d925fae",
+                color: "white",
+              }}
+              onClick={() => {
+                createOrder(offer.pizza);
+                setModalOffer(false);
+              }}
+            >
+              Finalizar Pedido
+            </Button>
+          </ModalFooter>
+        </Modal>
       )}
 
       <Box

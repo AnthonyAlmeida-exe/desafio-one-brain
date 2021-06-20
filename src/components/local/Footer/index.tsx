@@ -1,6 +1,9 @@
 import { Box, Stack, Text } from "@chakra-ui/react";
 
-import { SocialMediaLinks } from "./SocialMediaLinks";
+import { IconButton, ButtonGroup } from "@chakra-ui/react";
+
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
 export function Footer() {
   return (
     <Box
@@ -19,7 +22,24 @@ export function Footer() {
           align="center"
           justify="space-between"
         >
-          <SocialMediaLinks />
+          <ButtonGroup>
+            <IconButton
+              as="a"
+              target="_blank"
+              title="Github Anthony Almeida"
+              href="https://github.com/AnthonyAlmeida-exe"
+              aria-label="GitHub"
+              icon={<FaGithub fontSize="20px" />}
+            />
+            <IconButton
+              as="a"
+              target="_blank"
+              title="Linkedin Anthony Almeida"
+              href="https://br.linkedin.com/in/anthony-almeida"
+              aria-label="Linkedin"
+              icon={<FaLinkedin fontSize="20px" />}
+            />
+          </ButtonGroup>
         </Stack>
         <Text fontSize="sm" color="whiteAlpha.800">
           &copy; {new Date().getFullYear()} Dev Anthony Almeida
