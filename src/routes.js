@@ -31,6 +31,7 @@ export default function MainRoutes() {
         <Route path="/pizza" element={<PizzaStep />} />
         <Route path="/pizzastep2" element={<PizzaStep2 />} />
         <Route path="/pizzastep3" element={<PizzaStep3 />} />
+        <Route path="*" element={<div>FOURI ZERO FOURI</div>} />
       </Routes>
     </animated.div>
   ));
