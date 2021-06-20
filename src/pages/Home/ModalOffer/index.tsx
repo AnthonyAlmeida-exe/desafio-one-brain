@@ -9,7 +9,7 @@ import {
   Button,
   Text,
 } from "@chakra-ui/react";
-import { OfferProps } from "../../../types";
+import { OfferProps } from "types";
 
 interface IProps {
   isOpen: boolean;

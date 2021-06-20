@@ -1,6 +1,6 @@
 import { GlobalStyle } from "./styles/global";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import { Header } from "./components/local/Header";
+import { Footer } from "./components/local/Footer";
 import { UsersProvider } from "./hooks/useUsers";
 import { ClientProvider } from "./hooks/useClient";
 import { OrderProvider } from "./hooks/useOrder";

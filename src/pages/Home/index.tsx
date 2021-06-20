@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { Box, Image, Flex, Text } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
-import Pizza from "../../assets/pizza.jpg";
+import Pizza from "assets/pizza.jpg";
 import ModalOffer from "./ModalOffer";
-import { OfferProps } from "../../types";
-import { useOrder } from "../../hooks/useOrder";
+import { OfferProps } from "types";
+import { useOrder } from "hooks/useOrder";
 
 export default function Home() {
   const [modalOffer, setModalOffer] = useState(false);
@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <Flex direction="row" justifyContent="center" flexWrap="wrap">
-      <Link to="/pizza">
+      <Link to="/pastastep">
         <Box
           maxW="sm"
           borderWidth="1px"

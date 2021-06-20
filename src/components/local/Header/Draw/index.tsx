@@ -19,8 +19,8 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { useUsers } from "../../../hooks/useUsers";
-import { useClient } from "../../../hooks/useClient";
+import { useUsers } from "hooks/useUsers";
+import { useClient } from "hooks/useClient";
 
 interface Props {
   name: string;

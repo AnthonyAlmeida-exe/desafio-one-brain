@@ -23,7 +23,8 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import Draw from "./Draw";
 
-import { useClient } from "../../hooks/useClient";
+import { useClient } from "hooks/useClient";
+import { useOrder } from "hooks/useOrder";
 import { useRef, useState } from "react";
 
 export function Header() {
@@ -31,6 +32,7 @@ export function Header() {
   const handleToggle = () => (isOpen ? onClose() : onOpen());
   const [isOpenAlert, setIsOpenAlert] = useState(false);
   const { client, logoutClient } = useClient();
+  const { order } = useOrder();
   const cancelRef = useRef(null);
 
   const Alert = (
@@ -132,16 +134,16 @@ export function Header() {
             spacing="8px"
             separator={<ChevronRightIcon color="gray.500" />}
           >
-            <BreadcrumbItem isCurrentPage={location.pathname === "/pizza"}>
-              <Link to="/pizza">Massas</Link>
+            <BreadcrumbItem fontWeight={order.pasta ? 600 : 400}>
+              <Link to="/pastastep">Massas</Link>
             </BreadcrumbItem>
 
-            <BreadcrumbItem isCurrentPage={location.pathname === "/pizzastep2"}>
-              <Link to="/pizzastep2">Tamanhos</Link>
+            <BreadcrumbItem fontWeight={order.size ? 600 : 400}>
+              <Link to="/sizestep">Tamanhos</Link>
             </BreadcrumbItem>
 
-            <BreadcrumbItem isCurrentPage={location.pathname === "/pizzastep3"}>
-              <Link to="/pizzastep3">Recheio</Link>
+            <BreadcrumbItem fontWeight={order.flavor ? 600 : 400}>
+              <Link to="/flavorstep">Recheio</Link>
             </BreadcrumbItem>
           </Breadcrumb>
         </Flex>

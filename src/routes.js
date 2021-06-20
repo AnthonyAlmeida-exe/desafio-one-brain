@@ -2,9 +2,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useTransition, animated } from "react-spring";
 
 import Home from "./pages/Home";
-import PizzaStep from "./pages/PizzaStep";
-import PizzaStep2 from "./pages/PizzaStep2";
-import PizzaStep3 from "./pages/PizzaStep3";
+import ChoosePastaStep from "./pages/ChoosePastaStep";
+import ChooseSizeStep from "./pages/ChooseSizeStep";
+import ChooseFlavorStep from "./pages/ChooseFlavorStep";
 
 export default function MainRoutes() {
   const location = useLocation();
@@ -27,11 +27,11 @@ export default function MainRoutes() {
   return transitions((props, item) => (
     <animated.div style={props}>
       <Routes location={item}>
-        <Route path="" element={<Home />} />
-        <Route path="/pizza" element={<PizzaStep />} />
-        <Route path="/pizzastep2" element={<PizzaStep2 />} />
-        <Route path="/pizzastep3" element={<PizzaStep3 />} />
-        <Route path="*" element={<div>FOURI ZERO FOURI</div>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/pastastep" element={<ChoosePastaStep />} />
+        <Route path="/sizestep" element={<ChooseSizeStep />} />
+        <Route path="/flavorstep" element={<ChooseFlavorStep />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </animated.div>
   ));

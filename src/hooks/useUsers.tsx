@@ -8,7 +8,7 @@ import {
 import { useToast } from "@chakra-ui/react";
 import Cookie from "js-cookie";
 import { useClient } from "./useClient";
-import { User } from "../types";
+import { User } from "types";
 
 interface ProviderProps {
   children: ReactNode;

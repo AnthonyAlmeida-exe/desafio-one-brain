@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { Order } from "../types";
+import { Order } from "types";
 import Axios from "axios";
 import { useToast } from "@chakra-ui/react";
 import { useClient } from "./useClient";

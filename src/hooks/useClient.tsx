@@ -1,6 +1,6 @@
 import { useToast } from "@chakra-ui/react";
 import Cookies from "js-cookie";
-import { User } from "../types";
+import { User } from "types";
 import {
   createContext,
   ReactNode,
