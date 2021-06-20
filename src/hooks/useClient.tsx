@@ -52,7 +52,7 @@ export function ClientProvider({ children }: ProviderProps) {
         toast({
           title: "Bem vindo novamente!",
           status: "success",
-          duration: 9000,
+          duration: 5000,
           isClosable: true,
         });
         return e;
@@ -65,7 +65,7 @@ export function ClientProvider({ children }: ProviderProps) {
         title: "Senha/Usuário Incorreto!",
         description: "Verifique os dados e tente novamente!",
         status: "error",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
       return false;

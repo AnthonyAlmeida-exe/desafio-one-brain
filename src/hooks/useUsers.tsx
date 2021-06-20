@@ -33,7 +33,7 @@ export function UsersProvider({ children }: ProviderProps) {
         title: "Usuário já cadastrado!",
         description: "Verifique os dados e tente novamente!",
         status: "error",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
       return false;
@@ -48,7 +48,7 @@ export function UsersProvider({ children }: ProviderProps) {
       title: "Cadastrado com sucesso!",
       description: "Conta criada, parabéns!",
       status: "success",
-      duration: 9000,
+      duration: 5000,
       isClosable: true,
     });
 

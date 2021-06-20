@@ -6,24 +6,21 @@ import {
   Flex,
   Button,
   Text,
-  useToast,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useOrder } from "../../hooks/useOrder";
-import { useClient } from "../../hooks/useClient";
+
 import ModalFinishOrder from "./ModalFinishOrder";
-import { useNavigate } from "react-router-dom";
 
 function PizzaStep3() {
   const [oneFlavor, setOneFlavor] = useState("");
-  const navigate = useNavigate();
+
   const [twoFlavors, setTwoFlavors] = useState(["", ""]);
-  const { order, setOrderValues, cleanOrder, createOrder } = useOrder();
+  const { order, setOrderValues, createOrder } = useOrder();
   const [modalFinishOrder, setModalFinishOrder] = useState(false);
-  const { client } = useClient();
+
   const [flavor, setFlavor] = useState(1);
-  const toast = useToast();
 
   const [options, setOptions] = useState([]);
 
@@ -46,8 +43,6 @@ function PizzaStep3() {
   function handleCreateOrder() {
     createOrder(order);
     setOrderValues("flavor", oneFlavor);
-    cleanOrder();
-    navigate("/");
   }
 
   return (
@@ -104,6 +99,7 @@ function PizzaStep3() {
                 flexWrap="wrap"
                 minWidth={160}
                 maxWidth={250}
+                spacing={0}
               >
                 {options.map((option) => (
                   <Checkbox
@@ -149,7 +145,7 @@ function PizzaStep3() {
                 color="#2b6cb0"
                 fontWeight="600"
                 alignItems="left"
-                spacing={10}
+                spacing={5}
               >
                 <Flex>
                   <Flex flexDirection="column" justifyContent="space-between">

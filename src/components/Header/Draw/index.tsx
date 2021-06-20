@@ -76,7 +76,7 @@ function Draw({ name, variant }: Props) {
         title: "Email não encontrado!",
         description: "Verifique o email inserido ou cadastre-se!",
         status: "error",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
     }

@@ -3,6 +3,8 @@ import { Order } from "../types";
 import Axios from "axios";
 import { useToast } from "@chakra-ui/react";
 import { useClient } from "./useClient";
+import { useNavigate } from "react-router-dom";
+
 const OrderContext = createContext<ContextProps>({} as ContextProps);
 
 interface ContextProps {
@@ -20,6 +22,7 @@ export function OrderProvider({ children }: ProviderProps) {
   const [order, setOrder] = useState<Order>({} as Order);
   const { changePoints, client } = useClient();
   const toast = useToast();
+  const navigate = useNavigate();
 
   function setOrderValues(key: "pasta" | "size" | "flavor", value: string) {
     switch (key) {
@@ -46,7 +49,7 @@ export function OrderProvider({ children }: ProviderProps) {
         title: "Opa!",
         description: "Entre ou cadastre-se para finalizar o pedido!",
         status: "error",
-        duration: 9000,
+        duration: 5000,
         isClosable: true,
       });
     }
@@ -54,13 +57,23 @@ export function OrderProvider({ children }: ProviderProps) {
     const { data } = await Axios.post("/order/create", {
       pizza,
     });
+    cleanOrder();
+    navigate("/");
     if (data.availablePoints) {
       changePoints(client.points + 100);
       toast({
-        position: "top-right",
+        position: "top-left",
         title:
           "Parabéns, você adquiriu os pontos da oferta e ja foram adicionados a sua conta!",
         status: "info",
+        duration: 5000,
+        isClosable: true,
+      });
+    } else {
+      toast({
+        position: "top-right",
+        title: "Pedido efetuado com sucesso!",
+        status: "success",
         duration: 5000,
         isClosable: true,
       });
