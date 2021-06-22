@@ -128,7 +128,9 @@ export function Header() {
           {isOpenAlert && Alert}
         </Box>
       </Flex>
-      {location.pathname === ("/pastastep" || "/flavorstep" || "/sizestep") && (
+      {(location.pathname === "/pastastep" ||
+        location.pathname === "/flavorstep" ||
+        location.pathname === "/sizestep") && (
         <Flex justifyContent="center">
           <Breadcrumb
             spacing="8px"
